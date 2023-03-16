@@ -28,7 +28,7 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "build:scss": "esbuild src/web-component.js --bundle --outfile=web-component.js --loader:.js=jsx",
-    "build:wc": "node build.mjs && esbuild src/web-component.js --bundle --outfile=public/web-component.js --loader:.js=jsx"
+    "build:wc": "node build.mjs && esbuild src/web-component.js --bundle --outfile=cdn/web-component.js --loader:.js=jsx"
   },
   "eslintConfig": {
     "extends": [
