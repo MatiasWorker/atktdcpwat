@@ -1,0 +1,29 @@
+name: Production - Vercel Deploy Hub Mobile Tracking
+
+on:
+  push:
+    branches:
+      - production
+  pull_request:
+    branches: [production]
+    types: [closed]
+
+jobs:
+  vercel:
+    runs-on: ubuntu-latest
+    name: Deploy app
+
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v1
+        with:
+          node-version: 14
+          registry-url: https://registry.npmjs.org/
+
+      - name: Deploy to Vercel
+        run: |
+          VERCEL_ORG_ID=${VERCEL_TEAM_BLUEXPRESS_ID} VERCEL_PROJECT_ID=prj_rua7mxqR9DQDJ5FrQN7maSNHDOFK npx vercel --prod --build-env BX_ENV=PRODUCTION -t ${VERCEL_TOKEN} --scope blueexpress -m githubCommitSha=${{ github.sha }} -m githubCommitAuthorName=${{ github.actor }} -m githubCommitAuthorLogin=${{ github.actor }} -m githubDeployment=1 -m githubOrg=${{ github.repository_owner}} -m githubRepo=${{ github.event.repository.name }} -m githubCommitOrg=${{ github.repository_owner}} -m githubCommitRepo=${{ github.event.repository.name }} -m githubCommitMessage="${{ github.event.head_commit.message }}" -m githubCommitRef=production --confirm
+        env:
+          VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
+          VERCEL_TEAM_BLUEXPRESS_ID: ${{ secrets.VERCEL_TEAM_BLUEXPRESS_ID }}
+          NPM_TOKEN: ${{ secrets.NPM_VERCEL }}
