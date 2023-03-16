@@ -3,7 +3,6 @@
   "version": "0.1.0",
   "private": true,
   "source": "src/web-component.js",
-  "type": "module",
   "dependencies": {
     "@react-google-maps/api": "^2.18.1",
     "@react-google-maps/marker-clusterer": "^2.16.1",
@@ -12,7 +11,6 @@
     "@testing-library/user-event": "^13.5.0",
     "esbuild": "^0.17.11",
     "feather-icons-react": "^0.6.2",
-    "microbundle": "^0.15.1",
     "moment-timezone": "^0.5.40",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
@@ -30,8 +28,7 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "build:scss": "esbuild src/web-component.js --bundle --outfile=web-component.js --loader:.js=jsx",
-    "build:wc": "esbuild src/web-component.js --bundle --outfile=web-component.js --loader:.js=jsx",
-    "build:wc2": "microbundle"
+    "build:wc": "node build.mjs && esbuild src/web-component.js --bundle --outfile=public/web-component.js --loader:.js=jsx"
   },
   "eslintConfig": {
     "extends": [
