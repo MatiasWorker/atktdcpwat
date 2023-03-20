@@ -68840,7 +68840,7 @@
           console.log("Geolocation Not Available");
         }
         getPickupPoints().then((agencies2) => {
-          const sortedAgencies = getDistancesAndSortAgencies(mock_default, newCenter);
+          const sortedAgencies = getDistancesAndSortAgencies(agencies2, newCenter);
           setAgencies(sortedAgencies);
           setIsDataLoaded(true);
         });
