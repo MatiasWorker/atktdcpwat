@@ -1,7 +1,5 @@
 import mock from "../components/mock";
 
-// import { apiAux } from "../utilities/utilities";
-
 export const getPickupPoints = async () => {
   //const API_URL = "http://localhost:8080/api/cross/v1/agencies/agencies/";
   //const API_URL = "https://devapigw.bluex.cl/api/cross/v1/agencies/agencies/";
@@ -28,12 +26,12 @@ export const getPickupPoints = async () => {
 
   try {
     console.log("Trayendo data");
+
+    return Promise.resolve(mock);
     // const response = await fetch(API_URL, requestOptions);
     // const data = await response.json();
 
-    return Promise.resolve(mock);
-
-    // return apiAux();
+    // return data;
   } catch (error) {
     console.error("no response", error);
   }

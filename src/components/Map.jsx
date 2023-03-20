@@ -122,6 +122,8 @@ const MapContainer = ({ isMarkerShown }) => {
     };
     setCenter(newCenter);
 
+    document.body.dispatchEvent(new CustomEvent("AgencyId", { detail: id }));
+
     //setAgencies(auxAgency);
     return auxAgency;
   };
@@ -143,6 +145,8 @@ const MapContainer = ({ isMarkerShown }) => {
     setCenter(newCenter);
     setZoom(zoom === 18 ? 17 : 18);
     // console.log("Listbox Pulsado", id);
+
+    body.dispatchEvent(new CustomEvent("NewCenter", { detail: newCenter }));
   };
 
   const handleOpenPopUp = () => {
