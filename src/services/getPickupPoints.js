@@ -1,3 +1,5 @@
+import mock from "../components/mock";
+
 // import { apiAux } from "../utilities/utilities";
 
 export const getPickupPoints = async () => {
@@ -26,10 +28,10 @@ export const getPickupPoints = async () => {
 
   try {
     console.log("Trayendo data");
-    const response = await fetch(API_URL, requestOptions);
-    const data = await response.json();
+    // const response = await fetch(API_URL, requestOptions);
+    // const data = await response.json();
 
-    return data;
+    return Promise.resolve(mock);
 
     // return apiAux();
   } catch (error) {

@@ -4,6 +4,7 @@
   "private": true,
   "source": "src/web-component.js",
   "dependencies": {
+    "@atomico/vite": "^2.7.0",
     "@react-google-maps/api": "^2.18.1",
     "@react-google-maps/marker-clusterer": "^2.16.1",
     "@testing-library/jest-dom": "^5.16.5",
@@ -20,6 +21,7 @@
     "react-share": "^4.4.1",
     "react-to-webcomponent": "^1.7.3",
     "sass": "1.55.0",
+    "vite": "^4.2.1",
     "web-vitals": "^2.1.4"
   },
   "scripts": {
@@ -28,7 +30,8 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "build:scss": "esbuild src/web-component.js --bundle --outfile=web-component.js --loader:.js=jsx",
-    "build:wc": "node build.mjs && esbuild src/web-component.js --bundle --outfile=cdn/web-component.js --loader:.js=jsx"
+    "build:wc": "node build.mjs && esbuild src/web-component.js --bundle --outfile=cdn/web-component.js --loader:.js=jsx",
+    "check": "library src/web-component.js"
   },
   "eslintConfig": {
     "extends": [

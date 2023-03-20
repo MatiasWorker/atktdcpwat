@@ -16,6 +16,7 @@ import {
 } from "../utilities/utilities";
 import SharePopUp from "./SharePopUp";
 import LazyLoadListBox from "./LazyLoadListBox";
+import mock from "./mock";
 
 const MapContainer = ({ isMarkerShown }) => {
   const bar = window.location.search;
@@ -56,7 +57,7 @@ const MapContainer = ({ isMarkerShown }) => {
         console.log("Geolocation Not Available");
       }
       getPickupPoints().then((agencies) => {
-        const sortedAgencies = getDistancesAndSortAgencies(agencies, newCenter);
+        const sortedAgencies = getDistancesAndSortAgencies(mock, newCenter);
 
         setAgencies(sortedAgencies);
         setIsDataLoaded(true);
